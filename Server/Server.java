@@ -7,6 +7,9 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 class Server {
+    public static double Percent(long wholeSize,double count){
+        return ((count/(double) wholeSize)*100);
+    }
     public static void main(String args[]) throws Exception {
         String filename;
         System.out.println("Enter File Name: ");
@@ -39,14 +42,24 @@ class Server {
                     byte b[] = new byte[1024];
 
                     int read;
+                    int percentage=0;
 
-           //         dout.writeUTF(Long.toString(sz));
+                    dout.writeUTF(Long.toString(sz));
                     dout.flush();
 
 
+
+
                     while ((read = fin.read(b)) != -1) {
+
+
                         dout.write(b, 0, read);
                         dout.flush();
+                        percentage+=read;
+
+                  //      System.out.println(read);
+                 //       System.out.println(Percent(sz,count));
+                        System.out.println(((float) (percentage*100))/(float)sz);
                     }
                     fin.close();
 

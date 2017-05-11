@@ -24,7 +24,7 @@ class Client{
         System.out.println("Send Get to start...");
         String str="",filename="";
         try{
-            while(!str.equals("start"))
+            while(!str.equals("Get"))
                 str=br.readLine();
 
             dout.writeUTF(str);
@@ -32,7 +32,7 @@ class Client{
 
             filename=din.readUTF();
             System.out.println("Receving file: "+filename);
-            filename="client"+filename;
+            filename="new"+filename;
             System.out.println("Saving as file: "+filename);
 //
 //            long sz=Long.parseLong(din.readUTF());
@@ -40,14 +40,14 @@ class Client{
 
             byte b[]=new byte [1024];
             System.out.println("Receving file..");
-            FileOutputStream fos=new FileOutputStream(new File(filename),true);
+            FileOutputStream fos=new FileOutputStream(new File("C://Users//nazanin-sarrafzadeh//Downloads//"+filename));
             long bytesRead;
             do
             {
                 bytesRead = din.read(b, 0, b.length);
                 fos.write(b,0,b.length);
             }while(!(bytesRead<1024));
-            System.out.println("Comleted");
+            System.out.println("Comlete");
             fos.close();
             dout.close();
             s.close();
