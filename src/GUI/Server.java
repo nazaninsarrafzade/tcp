@@ -15,8 +15,8 @@ import javafx.concurrent.Task;
 public class Server extends Task<List<File>>{
     String name;
     Server(String name1){name=name1;}
-public void ru () throws Exception{
-        String filename;
+    protected List<File> call() throws Exception {
+        String filename;List<File> copied = new ArrayList<File>();
         //System.out.println("Enter File Name: ");
         Scanner sc=new Scanner(System.in);
         filename=name;
@@ -61,7 +61,7 @@ public void ru () throws Exception{
         dout.flush();
         m=m+read;
         System.out.println(((float)m*100)/(float)sz);
-        this.updateProgress(((float)m*100), (float)sz);
+        this.updateProgress(((float)m), (float)sz);
         }
         fin.close();
 
@@ -79,8 +79,8 @@ public void ru () throws Exception{
         }
         din.close();
         s.close();
-        ss.close();
+        ss.close(); return copied;
         }
-        }
-protected List<File> call() throws Exception{ List<File> copied = new ArrayList<File>();ru(); return copied;}
+
+}
         }

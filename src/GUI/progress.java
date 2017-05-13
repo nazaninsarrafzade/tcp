@@ -62,27 +62,27 @@ public class progress extends Application {
         });
 
         // Cancel
-        cancelButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                startButton.setDisable(false);
-                cancelButton.setDisable(true);
-                send.cancel(true);
-                progressBar.progressProperty().unbind();
-                progressIndicator.progressProperty().unbind();
-                //statusLabel.textProperty().unbind();
-                //
-                progressBar.setProgress(0);
-                progressIndicator.setProgress(0);
-            }
-        });
+//        cancelButton.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent event) {
+//                startButton.setDisable(false);
+//                cancelButton.setDisable(true);
+//                send.cancel(true);
+//                progressBar.progressProperty().unbind();
+//                progressIndicator.progressProperty().unbind();
+//                //statusLabel.textProperty().unbind();
+//                //
+//                progressBar.setProgress(0);
+//                progressIndicator.setProgress(0);
+//            }
+//        });
 
         FlowPane root = new FlowPane();
         root.setPadding(new Insets(10));
         root.setHgap(10);
 
         root.getChildren().addAll(label, progressBar, progressIndicator, //
-                 startButton, cancelButton);
+                 startButton, cancelButton,filenameInput);
 
         Scene scene = new Scene(root, 500, 120, Color.WHITE);
         primaryStage.setTitle("ProgressBar & ProgressIndicator");
