@@ -1,6 +1,4 @@
 package Client;
-
-import Server.Server;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -10,17 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-
-import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
-
 public class GUIclient extends Application {
     Client client=new Client();
     public static void main(String[] args) {
@@ -32,7 +20,7 @@ Stage window;
        window= primaryStage;
        window.setTitle("file transfer");
         Button Download = new Button();
-        Download.setText("Download");
+        Download.setText("Download me:)");
         GridPane layout=new GridPane();
         layout.setPadding(new Insets(10,10,10,10));
         layout.setVgap(8);

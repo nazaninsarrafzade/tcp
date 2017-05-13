@@ -1,10 +1,7 @@
-package GUI;
+package Server;
 
-import java.io.File;
-import java.util.List;
 import javafx.scene.control.TextField;
 import javafx.application.Application;
-import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -27,19 +24,13 @@ public class progress extends Application {
         final Label label = new Label("send files:");
         final ProgressBar progressBar = new ProgressBar(0);
         final ProgressIndicator progressIndicator = new ProgressIndicator(0);
-
         final Button startButton = new Button("Start");
-        final Button cancelButton = new Button("Cancel");
-
-
         startButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 startButton.setDisable(true);
                 progressBar.setProgress(0);
                 progressIndicator.setProgress(0);
-                cancelButton.setDisable(false);
-
 
                 send = new Server(filenameInput.getText());
 
@@ -61,28 +52,12 @@ public class progress extends Application {
             }
         });
 
-        // Cancel
-//        cancelButton.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent event) {
-//                startButton.setDisable(false);
-//                cancelButton.setDisable(true);
-//                send.cancel(true);
-//                progressBar.progressProperty().unbind();
-//                progressIndicator.progressProperty().unbind();
-//                //statusLabel.textProperty().unbind();
-//                //
-//                progressBar.setProgress(0);
-//                progressIndicator.setProgress(0);
-//            }
-//        });
-
         FlowPane root = new FlowPane();
         root.setPadding(new Insets(10));
         root.setHgap(10);
 
         root.getChildren().addAll(label, progressBar, progressIndicator, //
-                 startButton, cancelButton,filenameInput);
+                 startButton, filenameInput);
 
         Scene scene = new Scene(root, 500, 120, Color.WHITE);
         primaryStage.setTitle("ProgressBar & ProgressIndicator");

@@ -1,4 +1,4 @@
-package GUI;
+package Server;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -6,8 +6,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Scanner;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.concurrent.Task;
@@ -17,13 +15,10 @@ public class Server extends Task<List<File>>{
     Server(String name1){name=name1;}
     protected List<File> call() throws Exception {
         String filename;List<File> copied = new ArrayList<File>();
-        //System.out.println("Enter File Name: ");
-        Scanner sc=new Scanner(System.in);
         filename=name;
-        sc.close();
         while(true)
         {
-        //create server socket on port 5000
+
         ServerSocket ss=new ServerSocket(5001);
         System.out.println ("Waiting for request");
         Socket s=ss.accept();

@@ -8,16 +8,13 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStreamReader;
 import java.net.Socket;
-import java.util.Scanner;
 
 public class Client{
     public void run(String a, String n, String m)throws Exception{
         String address = "";
-        Scanner sc=new Scanner(System.in);
         System.out.println("Enter Server Address: ");
         address=a;
-//create the socket on port 5000
-        Socket s=new Socket(address,5000);
+        Socket s=new Socket(address,5001);
         DataInputStream din=new DataInputStream(s.getInputStream());
         DataOutputStream dout=new DataOutputStream(s.getOutputStream());
         BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
@@ -52,7 +49,6 @@ public class Client{
             fos.close();
             dout.close();
             s.close();
-            sc.close();
         }
         catch(EOFException e)
         {
